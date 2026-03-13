@@ -34,3 +34,12 @@ class Library:
     
     def __str__(self):
         return f"Библиотека '{self.name}': {len(self.books)} книг, {len(self.readers)} читателей"
+# Дополняем library.py новым методом
+    def search_books(self, query):
+        """Расширенный поиск книг по названию и автору"""
+        results = []
+        query = query.lower()
+        for book in self.books:
+            if query in book.title.lower() or query in book.author.lower():
+                results.append(book)
+        return results
